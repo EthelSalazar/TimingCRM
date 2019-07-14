@@ -1,0 +1,14 @@
+alter table charactapp_repdetail rename column rep_detail_id to user_repdetail_id;
+alter table apprtype_repdetail rename column rep_detail_id to user_repdetail_id;
+alter table schedule_repdetail rename column rep_detail_id to user_repdetail_id;
+
+ALTER TABLE charactapp_repdetail DROP CONSTRAINT charactapp_repdetail_rep_detail_id_fkey;
+ALTER TABLE charactapp_repdetail ADD FOREIGN KEY(user_repdetail_id) REFERENCES Users(id);
+
+ALTER TABLE apprtype_repdetail DROP CONSTRAINT apprtype_repdetail_rep_detail_id_fkey;
+ALTER TABLE apprtype_repdetail ADD FOREIGN KEY(user_repdetail_id) REFERENCES Users(id);
+
+ALTER TABLE schedule_repdetail DROP CONSTRAINT schedule_repdetail_rep_detail_id_fkey;
+ALTER TABLE schedule_repdetail ADD FOREIGN KEY(user_repdetail_id) REFERENCES Users(id);
+
+commit;

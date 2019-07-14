@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+   profiles: dev
+   application:
+      name: "Timingcrm"
+   datasource:
+      url: jdbc:postgresql://192.168.33.20:5432/postgres
+      username: vagrant
+      password: vagrant
+   servlet.multipart:
+      max-file-size: 500KB
+      max-request-size: 500KB
+fileupload.thread:
+    core-pool: 10
+    max-pool: 10
+fileupload.queue:
+    capacity: 20
+call.call-again: 2
+call.call-no-Answer: 4
+call.num-wrong: 1
+server:
+  port: 8050
+logging.level.root: "INFO"
+token.interval: "'15 MINUTES'"
+token.increment: "'5 MINUTES'"
+---
+spring:
+   profiles: prod
+   application:
+      name: "Timingcrm"
+   datasource:
+      url: jdbc:postgresql://timingcrmdb.cheiozs64le0.us-east-1.rds.amazonaws.com:5456/timingcrmdb01
+      username: timingcrm
+      password: quinchoncho
+   servlet.multipart:
+      max-file-size: 500KB
+      max-request-size: 500KB
+fileupload.thread:
+    core-pool: 10
+    max-pool: 10
+fileupload.queue:
+    capacity: 20
+call.call-again: 15
+call.call-no-Answer: 40
+call.num-wrong: 3
+server:
+  port: 5000
+logging.level.root: "INFO"
+token.interval: "'30 MINUTES'"
+token.increment: "'5 MINUTES'"
